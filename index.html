@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopPWA - E-Commerce PWA</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="theme-color" content="#2563eb" />
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+  <!-- Offline Banner -->
+  <div id="offlineIndicator" class="offline-indicator">You are offline</div>
+
+  <!-- Header -->
+  <header class="bg-white shadow-md p-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold text-blue-600">ShopPWA 🛍️</h1>
+    <div class="relative">
+      <button id="cartBtn" class="relative">
+        🛒
+        <span id="cartBadge" class="cart-badge hidden">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Connection Status -->
+  <div id="connectionStatus" class="hidden max-w-2xl mx-auto mt-4"></div>
+
+  <!-- Search -->
+  <div class="max-w-2xl mx-auto p-4">
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Search products..."
+      class="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-100"
+    />
+  </div>
+
+  <!-- Products Grid -->
+  <section id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto p-4"></section>
+
+  <!-- Cart Modal -->
+  <div id="cartModal" class="fixed inset-0 bg-black bg-opacity-40 backdrop-blur-sm flex items-center justify-center hidden">
+    <div class="bg-white w-full max-w-md p-6 rounded-xl shadow-xl relative">
+      <button id="closeCart" class="absolute top-2 right-3 text-gray-400 hover:text-black">✖</button>
+      <h2 class="text-xl font-semibold mb-4">Your Cart</h2>
+      <div id="cartItems" class="mb-4"></div>
+      <div class="flex justify-between items-center">
+        <strong>Total:</strong>
+        <span id="cartTotal" class="font-semibold text-lg text-blue-600">₹0</span>
+      </div>
+      <button id="checkoutBtn" class="mt-4 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">Checkout</button>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toastContainer" class="fixed bottom-5 right-5 flex flex-col gap-3 z-50"></div>
+
+  <!-- Install Prompt -->
+  <div id="installPrompt" class="install-prompt hidden">
+    <div class="flex items-center justify-between">
+      <span>Install ShopPWA for quick access?</span>
+      <div class="flex gap-2">
+        <button id="installBtn" class="bg-white text-blue-600 px-3 py-1 rounded-md font-semibold">Install</button>
+        <button id="dismissInstall" class="text-white underline">Later</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Search -->
+  <div class="fixed bottom-4 left-1/2 transform -translate-x-1/2 md:hidden w-[90%]">
+    <input
+      type="text"
+      id="mobileSearchInput"
+      placeholder="Search..."
+      class="w-full p-3 border border-gray-300 rounded-full shadow-md"
+    />
+  </div>
+
+  <!-- Notification Button (Optional) -->
+  <div class="fixed bottom-20 right-4">
+    <button
+      id="notificationBtn"
+      class="bg-blue-600 text-white px-4 py-2 rounded-full shadow-lg hover:bg-blue-700"
+    >
+      🔔 Enable Notifications
+    </button>
+  </div>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
